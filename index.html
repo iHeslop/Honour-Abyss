@@ -14,10 +14,49 @@
         box-sizing: border-box;
         font-family: "Press Start 2P", cursive;
       }
+      #desktop-message {
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #desktop-text {
+        position: absolute;
+        text-align: center;
+        color: white;
+        background-color: black;
+        width: 75%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50px;
+        line-height: 64px;
+        font-size: 32px;
+      }
+      #game {
+        position: relative;
+        display: inline-block;
+      }
+
+      @media (max-width: 1280px) {
+        #game {
+          display: none;
+        }
+        #desktop-message {
+          display: block;
+        }
+      }
     </style>
   </head>
   <body>
-    <div style="position: relative; display: inline-block">
+    <div id="desktop-message">
+      <div id="desktop-text">
+        Please use this application on a desktop computer
+      </div>
+    </div>
+    <div id="game">
       <div
         style="
           position: absolute;
@@ -105,11 +144,32 @@
           left: 0;
           right: 0;
           bottom: 0;
+          z-index: 1;
         "
       >
         Tie
       </div>
       <canvas></canvas>
+      <div
+        style="
+          position: relative;
+          display: flex;
+          width: 1024px;
+          align-items: center;
+          justify-content: space-between;
+          padding: 50px;
+          z-index: 10;
+        "
+      >
+        <img src="/Assets/wasd.png" alt="wasd" style="width: 25%" />
+        <div style="display: flex; align-items: center; flex-direction: column">
+          <h2>Honour Abyss</h2>
+          <button style="padding: 10px" onClick="window.location.reload();">
+            Reset
+          </button>
+        </div>
+        <img src="/Assets/arrows.png" alt="arrows" style="width: 25%" />
+      </div>
     </div>
     <script src="../JS/utilities.js"></script>
     <script src="../JS/classes.js"></script>

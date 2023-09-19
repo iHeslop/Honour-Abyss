@@ -1,5 +1,3 @@
-//1:34:09
-
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
@@ -33,7 +31,7 @@ const shop = new Sprite({
 
 const player = new Fighter({
   position: {
-    x: 0,
+    x: 50,
     y: 0,
   },
   velocity: {
@@ -93,7 +91,7 @@ const player = new Fighter({
 
 const enemy = new Fighter({
   position: {
-    x: 600,
+    x: 930,
     y: 100,
   },
   velocity: {
@@ -278,7 +276,7 @@ window.addEventListener("keydown", (event) => {
       case "w":
         if (player.velocity.y === 0) player.velocity.y = -20;
         break;
-      case " ":
+      case "s":
         player.attack();
         break;
     }
